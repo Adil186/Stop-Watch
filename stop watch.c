@@ -1,0 +1,89 @@
+# include <lpc214x.h>
+# include "delay.h"
+int main()
+{
+	int i,j,k,l,m,n,o;
+	char seg[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+	PINSEL0=0x00;
+	PINSEL1=0x00;
+	IO0DIR=0x7F;
+	IO1DIR=1<<21|1<<20|1<<19|1<<18|1<<17|1<<16;
+	while(1)
+	{
+		for(i=0;i<=2;i++)
+		{
+	 for(j=0;j<=4;j++)
+		{
+		for(l=0;l<=5;l++)
+		{
+		for(o=0;o<=9;o++)
+		{
+		for(m=0;m<=5;m++)
+						{
+							for(n=0;n<=9;n++)
+							{  
+								for(k=0;k<=5;k++){
+								IO0CLR=0xFF;	
+								IO1CLR=1<<21;
+								IO1SET=1<<20;
+								IO1SET=1<<19;
+							  IO1SET=1<<18;
+							  IO1SET=1<<17;
+							  IO1SET=1<<16;
+                IO0SET=seg[n];
+								delay(2);
+								IO0CLR=0xFF;	
+								IO1CLR=1<<20;
+								IO1SET=1<<21;
+								IO1SET=1<<19;
+							  IO1SET=1<<18;
+							  IO1SET=1<<17;
+							  IO1SET=1<<16;
+								IO0SET=seg[m];
+	             delay(2);
+								IO0CLR=0xFF;	
+								IO1CLR=1<<19;
+								IO1SET=1<<21;
+								IO1SET=1<<20;
+							  IO1SET=1<<18;
+							  IO1SET=1<<17;
+							  IO1SET=1<<16;
+								IO0SET=seg[o];
+								delay(2);
+								IO0CLR=0xFF;	
+								IO1SET=1<<19;
+								IO1SET=1<<21;
+								IO1SET=1<<20;
+							  IO1CLR=1<<18;
+							  IO1SET=1<<17;
+							  IO1SET=1<<16;
+								IO0SET=seg[l];
+								delay(2);
+								IO0CLR=0xFF;	
+								IO1SET=1<<19;
+								IO1SET=1<<21;
+								IO1SET=1<<20;
+							  IO1SET=1<<18;
+							  IO1CLR=1<<17;
+							  IO1SET=1<<16;
+								IO0SET=seg[j];
+								delay(2);
+								IO0CLR=0xFF;	
+								IO1SET=1<<19;
+								IO1SET=1<<21;
+								IO1SET=1<<20;
+							  IO1SET=1<<18;
+							  IO1SET=1<<17;
+							  IO1CLR=1<<16;
+								IO0SET=seg[i];
+								delay(2);
+							}
+							}					
+									
+								}
+							}
+						}			
+		}						
+}
+}								
+}
